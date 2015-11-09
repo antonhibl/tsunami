@@ -9,7 +9,7 @@ __This project is huge WIP__
 
 ## Basic Usage
 ```bash
-./tsunami http://example.com --threads 100
+./tsunami http://whitehouse.gov --threads 100
 ```
 
 ## Help
