@@ -45,8 +45,8 @@ func main() {
 	}
 
 	//URL and body may contain dynamic tokens
-	tokenizedTarget = tokenizedString{base: *target}
-	tokenizedBody = tokenizedString{base: *body}
+	tokenizedTarget = *NewTokenizedString(*target)
+	tokenizedBody = *NewTokenizedString(*body)
 
 	//Reflect arguments
 	if *verbose {

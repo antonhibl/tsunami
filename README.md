@@ -5,6 +5,17 @@ Tsunami is an advanced HTTP flooder written in Golang. It's currently implemente
 - Customizable mutlithreading
 - HTTPS support __(Note: Certificates aren't verified for performance)__
 - Realistic User Agent randomization
+- Dynamic payloads
+
+## Table of Contents
+1. [Basic Usage](#basic-usage)
+2. [Help](#help)
+3. [Quick Install](#quick-install)
+4. [Examples](#examples)
+   - [Low Volume POST Flood Lasting Forever](#low-volume-post-flood-lasting-forever)
+   - [High Volume HEAD Flood Lasting For 10 Minutes](#high-volume-head-flood-lasting-for-10-minutes)
+5. [Dynamic Tokens](#dynamic-tokens)
+6. [Todo](#todo)
 
 __This project is huge WIP__
 
@@ -18,13 +29,34 @@ __This project is huge WIP__
 ./tsunami --help
 ```
 
-## Quick install
+## Quick Install
 ```bash
 git clone https://github.com/ammario/tsunami
 cd tsunami
 export GOPATH=`pwd`
 go get ./...
 go build
+```
+
+## Dynamic Tokens
+Dynamic tokens allows you to implement elements of randomness in your requests. There are currently 2 tokens:
+- {D} - A random digit
+- {l} - A random lowercase letter
+- {L} - A random uppercase letter
+
+On every request, every token will be replaced.
+
+Example command:
+```bash
+./tsunami -w 1 http://nsa.gov/{L}{L}{l}{D}
+```
+The requests will use URLs similar to these:
+
+```
+http://nsa.gov/AYz3
+http://nsa.gov/BCv6
+http://nsa.gov/NFz7
+http://nsa.gov/IPa1
 ```
 
 ## Examples
