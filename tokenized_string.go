@@ -39,8 +39,8 @@ func RandomULetter() string {
 
 func (this *tokenizedString) String() string {
 	toSend := this.base
-
 	digitTokenCount := strings.Count(this.base, "{D}")
+
 	for i := 0; i < digitTokenCount; i++ {
 		toSend = strings.Replace(toSend, "{D}", RandomDigit(), 1)
 	}
