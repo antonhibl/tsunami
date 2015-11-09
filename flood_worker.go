@@ -35,6 +35,7 @@ func (fw *floodWorker) Start() {
 			//Client logic inside loop for future dynamic tokens implementation
 			body := []byte(tokenizedBody.String())
 			req, _ := http.NewRequest(*method, tokenizedTarget.String(), bytes.NewBuffer(body))
+			req.Header.Set("User-Agent", getRandomUserAgent())
 			if *method == "POST" {
 				req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 			}
