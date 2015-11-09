@@ -40,7 +40,10 @@ go build
 ```
 
 ## Dynamic Tokens
-Dynamic tokens allows you to implement elements of randomness in your requests. There are currently 2 tokens:
+Dynamic tokens allows you to implement elements of randomness in your requests.
+Tokens may be placed in your URL, body, and headers file.
+
+There are currently 2 tokens:
 - {D} - A random digit
 - {l} - A random lowercase letter
 - {L} - A random uppercase letter
@@ -74,5 +77,6 @@ http://nsa.gov/IPa1
 ./tsunami -w 1 "https://ammar.io/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
 ```
 ## Todo
+ - Dynamic tokens (E.g {RANDOM_STRING}, {RANDOM_INT})
  - Custom headers
  - ???
