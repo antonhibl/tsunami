@@ -74,6 +74,5 @@ http://nsa.gov/IPa1
 ./tsunami -w 1 "https://ammar.io/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
 ```
 ## Todo
- - Dynamic tokens (E.g {RANDOM_STRING}, {RANDOM_INT})
  - Custom headers
  - ???
