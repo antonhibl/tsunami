@@ -22,7 +22,7 @@ __This project is a WIP__
 
 ## Basic Usage
 ```bash
-./tsunami http://whitehouse.gov --threads 100
+./tsunami http://whitehouse.gov -w 100
 ```
 
 ## Help
