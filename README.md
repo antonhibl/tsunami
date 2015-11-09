@@ -6,6 +6,7 @@ Tsunami is an advanced HTTP flooder written in Golang. It's currently implemente
 - HTTPS support __(Note: Certificates aren't verified for performance)__
 - Realistic User Agent randomization
 - Dynamic payloads
+- Custom headers
 
 ## Table of Contents
 1. [Basic Usage](#basic-usage)
@@ -22,7 +23,7 @@ __This project is a WIP__
 
 ## Basic Usage
 ```bash
-./tsunami http://whitehouse.gov -w 100
+./tsunami http://whitehouse.gov --threads 100
 ```
 
 ## Help
