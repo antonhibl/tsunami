@@ -18,7 +18,7 @@ Tsunami is an advanced HTTP flooder written in Golang. It's currently implemente
 5. [Dynamic Tokens](#dynamic-tokens)
 6. [Todo](#todo)
 
-__This project is huge WIP__
+__This project is a WIP__
 
 ## Basic Usage
 ```bash
@@ -41,7 +41,7 @@ go build
 
 ## Dynamic Tokens
 Dynamic tokens allows you to implement elements of randomness in your requests.
-Tokens may be placed in your URL, body, and headers file.
+Tokens may be placed in your URL, body, and header values.
 
 There are currently 2 tokens:
 - {D} - A random digit
@@ -77,6 +77,4 @@ http://nsa.gov/IPa1
 ./tsunami -w 1 "https://ammar.io/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
 ```
 ## Todo
- - Dynamic tokens (E.g {RANDOM_STRING}, {RANDOM_INT})
- - Custom headers
  - ???
