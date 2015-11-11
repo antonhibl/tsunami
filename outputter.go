@@ -17,7 +17,7 @@ func Outputter() {
 			timeDifference = 1
 		}
 		reqs := float64(requestDifference) / timeDifference
-		fmt.Printf("%02d:%02d:%02d -> %.1f req/s | %d new reqs | %d total reqs\n", t.Hour(), t.Minute(), t.Second(), reqs, requestDifference, requestCounter)
+		fmt.Printf("%02d:%02d:%02d -> %.1f req/s | %d new reqs | %d total reqs | %s\n", t.Hour(), t.Minute(), t.Second(), reqs, requestDifference, requestCounter, lastErr)
 		lastDisplayRequests = requestCounter
 		lastOutputTime = t
 		time.Sleep(time.Duration(*displayInterval) * time.Millisecond)

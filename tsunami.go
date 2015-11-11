@@ -29,6 +29,7 @@ var (
 	requestChan       chan bool
 	workers           map[int]*floodWorker
 	scheme            string
+	lastErr           string
 	tokenizedTarget   tokenizedString
 	tokenizedBody     tokenizedString
 )

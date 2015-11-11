@@ -38,7 +38,10 @@ func (fw *floodWorker) Start() {
 			}
 			//Inject custom headers right before sending
 			injectHeaders(req)
-			client.Do(req)
+			_, err := client.Do(req)
+			if err != nil {
+				lastErr = err.Error()
+			}
 			fw.RequestCounter += 1 //Worker specific counter
 			requestChan <- true
 		}
