@@ -1,4 +1,4 @@
-# Tsunami
+# Tsunami | Project Created By ammario but maintained by me
 Tsunami is an advanced HTTP flooder written in Golang. It's currently implemented features include:
 
 - Live attack stats
@@ -33,7 +33,7 @@ __This project is a WIP__
 
 ## Quick Install
 ```bash
-git clone https://github.com/ammario/tsunami
+git clone https://github.com/cameronpoe/tsunami
 cd tsunami
 export GOPATH=`pwd`
 go get ./...
