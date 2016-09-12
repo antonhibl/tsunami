@@ -1,4 +1,4 @@
-# Tsunami | Project Created By ammario but maintained by me
+# Tsunami
 Tsunami is an advanced HTTP flooder written in Golang. It's currently implemented features include:
 
 - Live attack stats
