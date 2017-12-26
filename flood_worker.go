@@ -38,8 +38,13 @@ func (fw *floodWorker) Start() {
 			}
 			//Inject custom headers right before sending
 			injectHeaders(req)
-			_, err := client.Do(req)
+			resp, err := client.Do(req)
 			if err != nil {
+				lastErr = err.Error()
+			}
+			// Close body to prevent a "too many files open" error
+			err = resp.Body.Close()
+			if err != nil && lastErr == "" {
 				lastErr = err.Error()
 			}
 			fw.RequestCounter += 1 //Worker specific counter
