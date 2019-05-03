@@ -33,7 +33,7 @@ __This project is a WIP__
 
 ## Quick Install
 ```bash
-git clone https://github.com/cameronpoe/tsunami
+git clone https://github.com/zayotic/tsunami
 cd tsunami
 export GOPATH=`pwd`
 go get ./...
@@ -75,7 +75,7 @@ http://nsa.gov/IPa1
 ```
 ### Contact Us Form Spam
 ```bash
-./tsunami -w 1 "https://ammar.io/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
+./tsunami -w 1 "https://zay.li/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
 ```
 ## Todo
  - ???
