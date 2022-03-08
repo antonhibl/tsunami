@@ -20,7 +20,7 @@ var (
 	target          = kingpin.Arg("url", "Target URL e.g http://google.com").Required().String()
 	method          = kingpin.Arg("method", "HTTP method used for flood.").Default("GET").String()
 	body            = kingpin.Arg("body", "Body of request, useful for POST/PUT.").Default("").String()
-	arp_status      = kingpin.Arg("poison", "ARP Poison Mode, this is a side tool from the HTTP flood.").Default("").String()
+	arp_status      = kingpin.Flag("poison", "ARP Poison Mode, this is a side tool from the HTTP flood.").Default("").Short('p').String()
 )
 
 var (
