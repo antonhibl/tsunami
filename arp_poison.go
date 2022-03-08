@@ -382,31 +382,16 @@ func arp_tsunami() {
 		return
 	}
 
-	var routerMacAddr, localMacAddr, victimMacAddr string
-	var routerIPAddr, localIPAddr, victimIPAddr []byte
-
-	fmt.Printf("Enter the router MAC: ")
-	fmt.Scan("%s", routerMacAddr)
-	fmt.Printf("Enter the router IP: ")
-	fmt.Scan("%s", routerIPAddr)
-	fmt.Printf("Enter the local MAC: ")
-	fmt.Scan("%s", localMacAddr)
-	fmt.Printf("Enter the local IP: ")
-	fmt.Scan("%s", localIPAddr)
-	fmt.Printf("Enter the victim MAC: ")
-	fmt.Scan("%s", victimMacAddr)
-	fmt.Printf("Enter the victim IP: ")
-	fmt.Scan("%s", victimIPAddr)
-
 	var dev = "eno1"
 
 	fmt.Println("Running arp poison")
-	routerMac, err := net.ParseMAC(routerMacAddr)
-	routerIP := net.IP{routerIPAddr}
-	localMac, err := net.ParseMAC(localMacAddr)
-	localIP := net.IP{localIPAddr}
-	victimMac, err := net.ParseMAC(victimMacAddr)
-	victimIP := net.IP{victimIPAddr}
+	// fill in with proper addresses here
+	routerMac, err := net.ParseMAC()
+	routerIP := net.IP{}
+	localMac, err := net.ParseMAC()
+	localIP := net.IP{}
+	victimMac, err := net.ParseMAC()
+	victimIP := net.IP{}
 	/********* end parse all IP's and MAC's relevent for poisoning / spoofing *********/
 
 	if err != nil {
