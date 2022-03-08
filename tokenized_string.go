@@ -37,20 +37,20 @@ func RandomULetter() string {
 	return string(charSet[random.Intn(len(charSet))])
 }
 
-func (this *tokenizedString) String() string {
-	toSend := this.base
-	digitTokenCount := strings.Count(this.base, "{D}")
+func (tokenStr *tokenizedString) String() string {
+	toSend := tokenStr.base
+	digitTokenCount := strings.Count(tokenStr.base, "{D}")
 
 	for i := 0; i < digitTokenCount; i++ {
 		toSend = strings.Replace(toSend, "{D}", RandomDigit(), 1)
 	}
 
-	letterTokenCount := strings.Count(this.base, "{l}")
+	letterTokenCount := strings.Count(tokenStr.base, "{l}")
 	for i := 0; i < letterTokenCount; i++ {
 		toSend = strings.Replace(toSend, "{l}", RandomLetter(), 1)
 	}
 
-	uLetterTokenCount := strings.Count(this.base, "{L}")
+	uLetterTokenCount := strings.Count(tokenStr.base, "{L}")
 	for i := 0; i < uLetterTokenCount; i++ {
 		toSend = strings.Replace(toSend, "{L}", RandomULetter(), 1)
 	}

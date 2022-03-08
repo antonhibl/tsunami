@@ -20,7 +20,7 @@ func loadUserAgents() {
 	file, err := os.Open(*userAgentFile)
 	if err != nil {
 		//File not found, or whatever, use default UA
-		userAgents = append(userAgents, "Tsunami Flooder (https://github.com/ammar/tsunami)")
+		userAgents = append(userAgents, "Tsunami Flooder (https://github.com/antonhibl/tsunami)")
 		fmt.Println(err)
 	} else {
 		defer file.Close()
