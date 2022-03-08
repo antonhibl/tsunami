@@ -378,7 +378,7 @@ func spoof(ifacename string) {
 
 func arp_tsunami() {
 	if os.Geteuid() != 0 {
-		fmt.Println("dnsspoof requires root!")
+		fmt.Println("arp poison mode requires root!")
 		return
 	}
 
